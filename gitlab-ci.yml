@@ -1,0 +1,40 @@
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  image: node:16
+  cache:
+    paths:
+      - node_modules/
+  script:
+    - export CI=false
+    - export REACT_APP_RELEASE_DATE=$CI_COMMIT_TIMESTAMP
+    - npm cache clean --force
+    - npm install -S
+    - npm run build
+  artifacts:
+    paths:
+      - build/
+  tags:
+    - helm-push
+  only:
+    - develop
+
+deploy:
+  image: alpine
+  stage: deploy
+  dependencies:
+    - build
+  script:
+    - apk add --no-cache rsync openssh
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_dsa
+    - chmod 400 ~/.ssh/id_dsa
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - rsync -rav --delete /builds/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/build/ ubuntu@54.241.194.38:/var/www/calls.clout.one/zzzz
+  only:
+    - develop
+  tags:
+    - helm-push
