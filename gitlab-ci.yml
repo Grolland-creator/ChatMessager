@@ -10,7 +10,6 @@ build:
       - node_modules/
   script:
     - export CI=false
-    - export REACT_APP_RELEASE_DATE=$CI_COMMIT_TIMESTAMP
     - npm cache clean --force
     - npm install -S
     - npm run build
