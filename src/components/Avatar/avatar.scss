@@ -1,0 +1,15 @@
+.component-avatar{
+
+  display: flex;
+  border-radius: 4px;
+
+  &--sm{
+    width: 32px;
+    height: 32px;
+  }
+
+  &--md{
+    width: 48px;
+    height: 48px;
+  }
+}
