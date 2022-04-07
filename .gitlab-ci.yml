@@ -16,8 +16,6 @@ build:
   artifacts:
     paths:
       - build/
-  tags:
-    - helm-push
   only:
     - master
 
@@ -35,5 +33,3 @@ deploy:
     - rsync -rav --delete /builds/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/build/ ubuntu@54.241.194.38:/var/www/$(echo $CI_PROJECT_NAME | cut -d'-' -f 1)
   only:
     - master
-  tags:
-    - helm-push
