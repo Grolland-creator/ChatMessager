@@ -32,7 +32,7 @@ deploy:
     - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_dsa
     - chmod 400 ~/.ssh/id_dsa
     - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-    - rsync -rav --delete /builds/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/build/ ubuntu@54.241.194.38:/var/www/$(echo $CI_COMMIT_BRANCH | cut -d'-' -f 1)
+    - rsync -rav --delete /builds/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/build/ ubuntu@54.241.194.38:/var/www/$(echo $CI_COMMIT_BRANCH | cut -d'-' -f 1 | tr '[:lower:]' | tr -d '0123456789')
   tags:
     - helm-push
   rules:
