@@ -18,10 +18,8 @@ build:
       - build/
   tags:
     - helm-push
-  only:
-    - pushes
-  except:
-    - master
+  rules:
+    - if: $CI_COMMIT_BRANCH !== 'master'
 
 deploy:
   image: alpine
@@ -37,7 +35,5 @@ deploy:
     - rsync -rav --delete /builds/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/build/ ubuntu@54.241.194.38:/var/www/$(echo $CI_COMMIT_BRANCH | cut -d'-' -f 1)
   tags:
     - helm-push
-  only:
-    - pushes
-  except:
-    - master
+  rules:
+    - if: $CI_COMMIT_BRANCH !== 'master'
