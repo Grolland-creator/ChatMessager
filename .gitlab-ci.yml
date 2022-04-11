@@ -19,6 +19,7 @@ build:
   tags:
     - helm-push
   only:
+    - pushes
     - /^[A-z0-9.]*\-clout\-test$/
 
 deploy:
@@ -36,4 +37,5 @@ deploy:
   tags:
     - helm-push
   only:
+    - pushes
     - /^[A-z0-9.]*\-clout\-test$/
