@@ -20,7 +20,6 @@ build:
     - helm-push
   only:
     - pushes
-    - /^[A-z0-9.]*\-clout\-test$/
   except:
     - master
 
@@ -40,6 +39,5 @@ deploy:
     - helm-push
   only:
     - pushes
-    - /^[A-z0-9.]*\-clout\-test$/
   except:
     - master
