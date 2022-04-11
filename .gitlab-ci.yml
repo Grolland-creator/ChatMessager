@@ -21,6 +21,8 @@ build:
   only:
     - pushes
     - /^[A-z0-9.]*\-clout\-test$/
+  except:
+    - master
 
 deploy:
   image: alpine
@@ -39,3 +41,5 @@ deploy:
   only:
     - pushes
     - /^[A-z0-9.]*\-clout\-test$/
+  except:
+    - master
