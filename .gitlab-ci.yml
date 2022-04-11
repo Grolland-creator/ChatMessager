@@ -20,6 +20,8 @@ build:
     - helm-push
   rules:
     - if: $CI_COMMIT_BRANCH != 'master'
+  only:
+    - pushes
 
 deploy:
   image: alpine
@@ -37,3 +39,5 @@ deploy:
     - helm-push
   rules:
     - if: $CI_COMMIT_BRANCH != 'master'
+  only:
+    - pushes
