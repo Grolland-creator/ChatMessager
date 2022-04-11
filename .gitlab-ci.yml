@@ -19,7 +19,7 @@ build:
   tags:
     - helm-push
   only:
-    - /^[A-z0-9.]*/-clout/-test$/
+    - /^[A-z0-9.]*\-clout\-test$/
 
 deploy:
   image: alpine
@@ -36,4 +36,4 @@ deploy:
   tags:
     - helm-push
   only:
-    - /^[A-z0-9.]*/-clout/-test$/
+    - /^[A-z0-9.]*\-clout\-test$/
