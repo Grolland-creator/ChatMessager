@@ -19,7 +19,7 @@ build:
   tags:
     - helm-push
   rules:
-    - if: $CI_COMMIT_BRANCH != "master" && $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_TITLE == "finish"
+    - if: $CI_COMMIT_BRANCH != "master" && $CI_PIPELINE_SOURCE == "push"
 
 deploy:
   image: alpine
@@ -36,4 +36,4 @@ deploy:
   tags:
     - helm-push
   rules:
-    - if: $CI_COMMIT_BRANCH != "master" && $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_TITLE == "finish"
+    - if: $CI_COMMIT_BRANCH != "master" && $CI_PIPELINE_SOURCE == "push"
