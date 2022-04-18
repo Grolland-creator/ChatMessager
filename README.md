@@ -1,46 +1,32 @@
-# Getting Started with Create React App
+# Тестовое задание на должность Front-end (React) разработчик
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Время рассчитанное на выполнение задания - 3-6 часов. Однако Вы можете уделить столько времени, сколько потребуется. Если Ваш расчет затрат времени составит более 12 часво, сообщите Нам где конкретно будет затрачено много времени и МЫ упростим задание.
 
-## Available Scripts
+Если по какой-то части задания возникнет трудность,  пропустите его или выберите альтернативный и простой способ реализации.
 
-In the project directory, you can run:
+## Структура проекта
 
-### `npm start`
+api - пример метода работы с бекэндом, для примера реализован список чатов
+components - хранение компонентов, для примера реализован компонент Avatar
+constants - любые константы используемые в проекте, для примера список URL
+interface - общие интерфейсы, для примера интерфейс объекта Page
+pages - список страниц проекта
+utils - общие функции, для примера работа с бекендом
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Описание задания:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Отверстать 6 базовых компонентов из которых состоит интерфейc, прописать необходимые пропсы и состояния:
+- Chat item list (чат из левой панели)
+- Message (сообщение из тела чата)
+- Input (Поле ввода)
+- Header (хедер)
+- Time (Дата в теле чата)
+- New message (полоса что есть новые сообщеня)
+2. При уменьшении экрана правая часть с сообщениями должна уменьшаться. Верстка до разрешения экрана 700 пикселей. Если размер экрана в ширину меньше 700 пикселей, выводим заглушку “ПРОСТИТЕ! НО ДЛЯ МОБИЛЬНЫХ ТЕЛЕФОНОВ У НАС ЕСТЬ МОБИЛЬНОЕ ПРИЛОЖЕНИЕ”.
+3. Input (Поле ввода) для текста в правой части сообщений сделать НЕ input и НЕ textarea, но с возможностью писать в этом поле аналогично как в textarea. Должно быть видно три строки, если текста более трёх строк, то должна появиться прокрутка.
+4. Список методов для работы с бэк-ендом вы найдете в сваггере по ссылке: https://api.clout.one/documentation/#/ Используйте даные методы для вывода списка чатов и списка сообщений по каждому из них. 
+5. Левая панель, список чатов: В названиях чата, если название слишком длинное и не умещается в одну строку, обрезать название через троеточие(…)
+   Если текст сообщения (вторая строка) слишком большой, оставить две строки, остальное обрезать и сделать троеточие (…)
+6. При нажатии на чат слева в правой части должны динамически подгружаться сообщения, относящиеся к этому чату.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### НЕ ЗАБУДЬТЕ ОТПРАВИТЬ PUSH КОГДА ЗАКОНЧИТЕ РАБОТУ
