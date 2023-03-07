@@ -4,7 +4,7 @@ stages:
 
 build:
   stage: build
-  image: node:16
+  image: node:19
   cache:
     paths:
       - node_modules/
@@ -16,8 +16,7 @@ build:
   artifacts:
     paths:
       - build/
-  tags:
-    - helm-push
+      - src/
   rules:
     - if: $CI_COMMIT_BRANCH != "master" && $CI_PIPELINE_SOURCE == "push"
 
@@ -27,13 +26,12 @@ deploy:
   dependencies:
     - build
   script:
-    - apk add --no-cache rsync openssh
-    - mkdir -p ~/.ssh
-    - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_dsa
-    - chmod 400 ~/.ssh/id_dsa
-    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-    - rsync -rav --delete /builds/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/build/ ubuntu@54.241.194.38:/var/www/$(echo $CI_COMMIT_BRANCH| cut -d'-' -f 1 | tr -d '0123456789' | tr '[A-Z]' '[a-z]')
-  tags:
-    - helm-push
+    - cp -R /home/gitlab-runner/builds/qLxn9_SK/0/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/build/* /var/www/test.clout.one/$(echo $CI_COMMIT_BRANCH| cut -d'-' -f 1 | tr -d '0123456789' | tr '[A-Z]' '[a-z]')
+#    - apk add --no-cache rsync openssh
+#    - mkdir -p ~/.ssh
+#    - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_dsa
+#    - chmod 400 ~/.ssh/id_dsa
+#    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+#    - rsync -rav --delete /builds/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/build/ ubuntu@54.241.194.38:/var/www/$(echo $CI_COMMIT_BRANCH| cut -d'-' -f 1 | tr -d '0123456789' | tr '[A-Z]' '[a-z]')
   rules:
     - if: $CI_COMMIT_BRANCH != "master" && $CI_PIPELINE_SOURCE == "push"
