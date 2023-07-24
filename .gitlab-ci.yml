@@ -31,10 +31,10 @@ deploy:
     - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_dsa
     - chmod 0600 ~/.ssh/*
     - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-    - ssh root@212.118.54.193 "mkdir /var/www/$(echo $CI_COMMIT_BRANCH| cut -d'-' -f 1 | tr -d '0123456789' | tr '[A-Z]' '[a-z]').test.lenzaos.com"
-    - scp -r /home/gitlab-runner/builds/uzUmDE-o/0/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/build/* root@212.118.54.193:/var/www/$(echo $CI_COMMIT_BRANCH| cut -d'-' -f 1 | tr -d '0123456789' | tr '[A-Z]' '[a-z]').test.lenzaos.com
-    - ssh root@212.118.54.193 "mkdir /var/www/$(echo $CI_COMMIT_BRANCH| cut -d'-' -f 1 | tr -d '0123456789' | tr '[A-Z]' '[a-z]').test.lenzaos.com/src"
-    - scp -r /home/gitlab-runner/builds/uzUmDE-o/0/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/src/* root@212.118.54.193:/var/www/$(echo $CI_COMMIT_BRANCH| cut -d'-' -f 1 | tr -d '0123456789' | tr '[A-Z]' '[a-z]').test.lenzaos.com/src
+    - ssh ubuntu@212.118.54.193 "mkdir /var/www/$(echo $CI_COMMIT_BRANCH| cut -d'-' -f 1 | tr -d '0123456789' | tr '[A-Z]' '[a-z]').test.lenzaos.com"
+    - scp -r /home/gitlab-runner/builds/MxY-svyq/0/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/build/* ubuntu@212.118.54.193:/var/www/$(echo $CI_COMMIT_BRANCH| cut -d'-' -f 1 | tr -d '0123456789' | tr '[A-Z]' '[a-z]').test.lenzaos.com
+    - ssh ubuntu@212.118.54.193 "mkdir /var/www/$(echo $CI_COMMIT_BRANCH| cut -d'-' -f 1 | tr -d '0123456789' | tr '[A-Z]' '[a-z]').test.lenzaos.com/src"
+    - scp -r /home/gitlab-runner/builds/MxY-svyq/0/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/src/* ubuntu@212.118.54.193:/var/www/$(echo $CI_COMMIT_BRANCH| cut -d'-' -f 1 | tr -d '0123456789' | tr '[A-Z]' '[a-z]').test.lenzaos.com/src
   after_script:
     - rm ~/.ssh -R
   rules:
