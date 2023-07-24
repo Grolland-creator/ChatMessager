@@ -26,16 +26,9 @@ deploy:
   dependencies:
     - build
   script:
-    - mkdir -p ~/.ssh
-    - chmod 0777 ~/.ssh -R
-    - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_dsa
-    - chmod 0600 ~/.ssh/*
-    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-    - ssh ubuntu@212.118.54.193 "mkdir /var/www/$(echo $CI_COMMIT_BRANCH| cut -d'-' -f 1 | tr -d '0123456789' | tr '[A-Z]' '[a-z]').test.lenzaos.com"
-    - scp -r /home/gitlab-runner/builds/MxY-svyq/0/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/build/* ubuntu@212.118.54.193:/var/www/$(echo $CI_COMMIT_BRANCH| cut -d'-' -f 1 | tr -d '0123456789' | tr '[A-Z]' '[a-z]').test.lenzaos.com
-    - ssh ubuntu@212.118.54.193 "mkdir /var/www/$(echo $CI_COMMIT_BRANCH| cut -d'-' -f 1 | tr -d '0123456789' | tr '[A-Z]' '[a-z]').test.lenzaos.com/src"
-    - scp -r /home/gitlab-runner/builds/MxY-svyq/0/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/src/* ubuntu@212.118.54.193:/var/www/$(echo $CI_COMMIT_BRANCH| cut -d'-' -f 1 | tr -d '0123456789' | tr '[A-Z]' '[a-z]').test.lenzaos.com/src
-  after_script:
-    - rm ~/.ssh -R
+    - ssh ubuntu@10.11.1.56 "mkdir /var/www/$(echo $CI_COMMIT_BRANCH| cut -d'-' -f 1 | tr -d '0123456789' | tr '[A-Z]' '[a-z]').test.lenzaos.com"
+    - scp -r /home/gitlab-runner/builds/MxY-svyq/0/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/build/* ubuntu@10.11.1.56:/var/www/$(echo $CI_COMMIT_BRANCH| cut -d'-' -f 1 | tr -d '0123456789' | tr '[A-Z]' '[a-z]').test.lenzaos.com
+    - ssh ubuntu@10.11.1.56 "mkdir /var/www/$(echo $CI_COMMIT_BRANCH| cut -d'-' -f 1 | tr -d '0123456789' | tr '[A-Z]' '[a-z]').test.lenzaos.com/src"
+    - scp -r /home/gitlab-runner/builds/MxY-svyq/0/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/src/* ubuntu@10.11.1.56:/var/www/$(echo $CI_COMMIT_BRANCH| cut -d'-' -f 1 | tr -d '0123456789' | tr '[A-Z]' '[a-z]').test.lenzaos.com/src
   rules:
     - if: $CI_COMMIT_BRANCH != "master" && $CI_PIPELINE_SOURCE == "push"
