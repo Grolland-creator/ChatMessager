@@ -1,11 +1,13 @@
 import React from 'react';
-import {PageIndex} from "./pages/index";
+import GreatProjectPage from "./pages/GreatProjectPage/GreatProjectPage";
+
 
 function App() {
+
   return (
-    <div className="App">
-      <PageIndex />
-    </div>
+    <main className="App">
+      <GreatProjectPage isCorrectWidth={document.documentElement.clientWidth > 700}/>
+    </main>
   );
 }
 

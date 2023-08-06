@@ -1,0 +1,21 @@
+.container {
+   width: 100%;
+   display: flex;
+   padding: 0 24px;
+   gap: 8px;
+   margin: 12px 0 0 0;
+}
+
+.block {
+   display: grid;
+   width: 100%;
+}
+
+.title {
+   color: var(--text-100, #201F1E);
+   font-family: 'Lato';
+   font-size: 15px;
+   font-style: normal;
+   font-weight: 700;
+   line-height: 20px;
+}

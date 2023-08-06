@@ -1,0 +1,19 @@
+.container {
+   display: flex;
+   align-items: flex-end;
+   gap: 2px;
+   padding-top: 2px;
+   justify-content: flex-end;
+   img {
+      margin-bottom: 2px;
+   }
+}
+
+.text {
+   color: var(--text-80, #605E5C);
+   font-family: Lato;
+   font-size: 12px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 9px;
+}

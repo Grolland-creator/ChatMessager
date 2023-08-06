@@ -1,0 +1,18 @@
+.container {
+   width: 100%;
+   height: 24px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 12px 0;
+   background: var(--system-colors-bg-selected, rgba(64, 126, 201, 0.08));
+}
+
+.text {
+   font-family: Lato;
+   font-size: 12px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 16px;
+   color: var(--system-colors-action, #407EC9);
+}

@@ -1,0 +1,36 @@
+.container {
+   width: fit-content;
+   max-width: 550px;
+   border-radius: 4px;
+   background: var(--ui-background, #F3F3F3);
+   padding: 12px 8px;
+   margin-top: 4px;
+   display: inline-flex;
+   flex-direction: column;
+   justify-content: start;
+   flex: 0 1 auto;
+}
+
+.containerMy {
+   max-width: 550px;
+   border-radius: 4px;
+   background: var(--ui-message-bg, rgba(64, 126, 201, 0.16));
+   padding: 12px 8px;
+   justify-self: end;
+   display: flex;
+   flex-direction: column;
+}
+
+.marginLeft {
+   margin-left: 64px;
+   margin-right: 24px;
+}
+
+.text {
+   color: var(--text-100, #201F1E);
+   font-family: Lato;
+   font-size: 15px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 20px;
+}
